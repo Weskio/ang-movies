@@ -16,7 +16,7 @@
 <!-- searchbar -->
 <div class="ml-5">
     <div class="search-bar mt-12 fixed mb-24 ml-24">
-        <button class="text-white mr-4">search</button>
+        <button class="text-white mr-4"><fa-icon class=" text-white text-2xl font-bold bg-[#0d172c] hover:text-red-500" [icon]="faMagnifyingGlass"></fa-icon></button>
         <input type="text" placeholder="Search for movies or TV series" class="w-96 placeholder:text-slate-700"/>
     </div>
 
@@ -101,63 +101,10 @@
 <p class="ml-28 mt-8 text-white font-semibold text-2xl fixed">Recommended for you</p>
  
 <div class="movies grid lg:grid-cols-5 grid-cols-3 gap-6 ml-28 mt-24 max-w-full fixed">
-    <div class="rec-movie-cards">
-        <div class="group relative">
-            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
-            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
-                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
-                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
-                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
-                </div>
-               
-            </div>
-        </div>
-        <ul class="flex text-slate-500 text-xs">
-        <li>2019</li>
-        <li class="ml-3">Movie</li>
-        <li class="ml-3">PG</li>
-    </ul>
-    <p class="font-semibold text-white">The Great Lands</p>
-    </div>
-
-    <div class="rec-movie-cards">
-        <div class="group relative">
-            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
-            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
-                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
-                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
-                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
-                </div>
-               
-            </div>
-        </div>
-        <ul class="flex text-slate-500 text-xs">
-        <li>2019</li>
-        <li class="ml-3">Movie</li>
-        <li class="ml-3">PG</li>
-    </ul>
-    <p class="font-semibold text-white">The Great Lands</p>
-    </div>
-
-    <div class="rec-movie-cards">
-        <div class="group relative">
-            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
-            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
-                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
-                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
-                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
-                </div>
-               
-            </div>
-        </div>
-        <ul class="flex text-slate-500 text-xs">
-        <li>2019</li>
-        <li class="ml-3">Movie</li>
-        <li class="ml-3">PG</li>
-    </ul>
-    <p class="font-semibold text-white">The Great Lands</p>
-    </div>
-
+   <div *ngFor=" let movieCard of movieCards">
+    <app-movie-card [movieCard]="movieCard"/>
+   </div>
+    
 </div>
 
 
