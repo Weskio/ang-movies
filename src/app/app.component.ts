@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
+import { faFontAwesome } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-root',
@@ -11,5 +13,5 @@ import { HomeComponent } from "./home/home.component";
     imports: [CommonModule, RouterOutlet, HomeComponent]
 })
 export class AppComponent {
-  title = 'ang-movies';
+ faCoffee = faCoffee;
 }

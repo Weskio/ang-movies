@@ -1,19 +1,16 @@
 <div class="flex">
     <!-- sidebar -->
-    <div class="">
-    <div class="sidebar w-24 h-3/4 mt-8 mr-8 bg-[#0d172c] border border-[#0d172c] p-4 rounded-md pb-96 fixed  min-h-screen z-10">
-
+    <div class="w-24 mt-8 mr-8 bg-[#0d172c] pt-8 border border-[#0d172c]  rounded-md pb-96 fixed  min-h-[92%] z-10">
         <ul class="bg-transparent">
-            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="ml-3 mt-4 mb-16"></li>
-            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="ml-3 mt-4 mb-8"></li>
-            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="ml-3 mt-4 mb-8"></li>
-            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="ml-3 mt-4 mb-8"></li>
-            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="ml-3 mt-4 mb-8"></li>
-        
-        </ul>
+            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="pl-9 pr-9 bg-[#0d172c] pb-8 " width="250px"></li>
+            <li><img src="https://entertainment-app-tawny.vercel.app/assets/images/logo.svg" class="pl-9 pr-9 bg-[#0d172c] mt-6"></li>
+            <li><fa-icon class=" text-white pl-9 pr-10 bg-[#0d172c] pt-6 pb-6 hover:text-red-500" [icon]="faHouse"></fa-icon>> </li>
+            <li><fa-icon class=" text-slate-500 pl-9 pr-10 hover:text-red-500 bg-[#0d172c] pt-6 pb-6" [icon]="faFilm"></fa-icon>> </li>
+            <li><fa-icon class=" text-slate-500 pl-9 pr-10 bg-[#0d172c] hover:text-red-500 pt-6 pb-6" [icon]="faClapperboard"></fa-icon>> </li>
+            <li><fa-icon class=" text-slate-500 pl-9 pr-11 bg-[#0d172c] pt-6 pb-6 hover:text-red-500" [icon]="faBookmark"></fa-icon> </li>
 
+        </ul>
     </div>
-</div>
 
     <div class="main-content ml-6">
 <!-- searchbar -->
@@ -27,9 +24,9 @@
 
 <!-- trending carousel -->
 <p class="text-white font-semibold text-2xl mt-24 mb-8 ml-28 fixed z-10">Trending</p>
-<div class="max-width-screen ml-12">
+<div class="max-width-screen ml-12 mt-4">
     <div class="overflow-x-hidden">
-<div class=" flex ml-16 mt-32" style="width: 3000px; scroll-snap-type: x var(--tw-scroll-snap-strictness);">
+<div class=" flex ml-16 mt-32" style="width: 2000px; scroll-snap-type: x var(--tw-scroll-snap-strictness);">
      
     <div class="trending-card relative snap-center  ">
        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
@@ -105,8 +102,17 @@
  
 <div class="movies grid lg:grid-cols-5 grid-cols-3 gap-6 ml-28 mt-24 max-w-full fixed">
     <div class="rec-movie-cards">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md"/>
-    <ul class="flex text-slate-500 text-xs">
+        <div class="group relative">
+            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
+            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
+                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
+                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
+                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
+                </div>
+               
+            </div>
+        </div>
+        <ul class="flex text-slate-500 text-xs">
         <li>2019</li>
         <li class="ml-3">Movie</li>
         <li class="ml-3">PG</li>
@@ -115,8 +121,17 @@
     </div>
 
     <div class="rec-movie-cards">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md"/>
-    <ul class="flex text-slate-500 text-xs">
+        <div class="group relative">
+            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
+            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
+                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
+                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
+                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
+                </div>
+               
+            </div>
+        </div>
+        <ul class="flex text-slate-500 text-xs">
         <li>2019</li>
         <li class="ml-3">Movie</li>
         <li class="ml-3">PG</li>
@@ -125,8 +140,17 @@
     </div>
 
     <div class="rec-movie-cards">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md"/>
-    <ul class="flex text-slate-500 text-xs">
+        <div class="group relative">
+            <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md z-5-10"/>
+            <div class="absolute invisible group-hover:visible flex w-[220px] h-[136px] top-0 items-center rounded-md backdrop-grayscale-0 bg-black bg-opacity-70">
+                <div class="play flex bg-transparent ml-auto mr-auto p-1.5 px-3 bg-white bg-opacity-20 rounded-3xl">
+                    <fa-icon class="text-white text-xl p-2 rounded-full h-8 w-8 flex items-center bg-[#0d172c]  hover:text-red-500" [icon]="faPlay"></fa-icon>
+                    <p class="text-white bg-transparent font-semibold ml-1.5 pt-1">Play</p>
+                </div>
+               
+            </div>
+        </div>
+        <ul class="flex text-slate-500 text-xs">
         <li>2019</li>
         <li class="ml-3">Movie</li>
         <li class="ml-3">PG</li>
@@ -134,25 +158,6 @@
     <p class="font-semibold text-white">The Great Lands</p>
     </div>
 
-    <div class="rec-movie-cards">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md"/>
-    <ul class="flex text-slate-500 text-xs">
-        <li>2019</li>
-        <li class="ml-3">Movie</li>
-        <li class="ml-3">PG</li>
-    </ul>
-    <p class="font-semibold text-white">The Great Lands</p>
-    </div>
-    
-    <div class="rec-movie-cards">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/the-great-lands/regular/large.jpg" width="270px" height="200px" class="rounded-md"/>
-    <ul class="flex text-slate-500 text-xs">
-        <li>2019</li>
-        <li class="ml-3">Movie</li>
-        <li class="ml-3">PG</li>
-    </ul>
-    <p class="font-semibold text-white">The Great Lands</p>
-    </div>
 </div>
 
 
