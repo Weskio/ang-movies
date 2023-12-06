@@ -4,5 +4,6 @@ export interface MovieCard {
     title:string,
     rate:string,
     year:number,
-    image:string
+    image:string,
+    trendy?:boolean,
 }

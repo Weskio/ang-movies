@@ -16,92 +16,54 @@
 <!-- searchbar -->
 <div class="ml-5">
     <div class="search-bar mt-12 fixed mb-24 ml-24">
-        <button class="text-white mr-4"><fa-icon class=" text-white text-2xl font-bold bg-[#0d172c] hover:text-red-500" [icon]="faMagnifyingGlass"></fa-icon></button>
-        <input type="text" placeholder="Search for movies or TV series" class="w-96 placeholder:text-slate-700"/>
-    </div>
+        <form class="flex">
+            <button (click)="filterResults(filter.value)" class="text-white mr-4"><fa-icon class=" text-white text-2xl font-bold bg-[#0d172c] hover:text-red-500" [icon]="faMagnifyingGlass"></fa-icon></button>
+            <input #filter type="text" placeholder="Search for movies or TV series" class=" md:w-[800px] caret-red-500 placeholder:text-slate-700 focus:outline-none focus:border-b focus:border-indigo-300 text-white" />    
+        </form>
+        </div>
 
 </div>
 
 <!-- trending carousel -->
 <p class="text-white font-semibold text-2xl mt-24 mb-8 ml-28 fixed z-10">Trending</p>
 <div class="max-width-screen ml-12 mt-4">
-    <div class="overflow-x-hidden">
-<div class=" flex ml-16 mt-32" style="width: 2000px; scroll-snap-type: x var(--tw-scroll-snap-strictness);">
-     
-    <div class="trending-card relative snap-center  ">
-       <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
-       <div class="card-details absolute top-24 left-9 text-white bg-transparent">
-        <ul class="flex bg-transparent text-slate-300 text-xs">
-            <li class="bg-transparent">2019</li>
-            <li  class="ml-4 bg-transparent">Movie</li>
-            <li class="ml-4 bg-transparent">PG</li>
-        </ul>
-        <p class="bg-transparent font-bold shadow-lg ">Beyond Earth</p>
-       </div>
-       <img src=""/>
+    <div class="overflow-x-hidden" style="overflow-x: hidden;">
+      <div class="flex ml-16 mt-32" style="width: 2000px; overflow-x: auto; scroll-snap-type: x var(--tw-scroll-snap-strictness);">
+        @defer () {
+          <app-trending-movies *ngFor="let trendyMovie of trendyMovies" [trendyMovie]="trendyMovie"/>
+        }
+  
+        @loading(minimum 2s) {
+          <div class="center ml-auto mr-auto mt-60">
+            <div class="ring"></div>
+            <span>loading...</span>
+          </div>
+        }
       </div>
-   
+    </div>
+  </div>
+  
+  <!-- <div class="media-scroller snaps-inline ml-60 mt-40 w-[2000px] mr-24">
 
-      <div class="trending-card relative snap-center  ml-10">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
-        <div class="card-details absolute top-24 left-9 text-white bg-transparent">
-         <ul class="flex bg-transparent text-slate-300 text-xs">
-             <li class="bg-transparent">2019</li>
-             <li  class="ml-4 bg-transparent">Movie</li>
-             <li class="ml-4 bg-transparent">PG</li>
-         </ul>
-         <p class="bg-transparent font-bold shadow-lg ">Beyond Earth</p>
-        </div>
-        <img src=""/>
-       </div>
+    @defer () {
+        <app-trending-movies *ngFor="let trendyMovie of trendyMovies" [trendyMovie]="trendyMovie"/>
+      }
 
-    <div class="trending-card relative ml-10">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
-        <div class="card-details absolute top-24 left-9 text-white bg-transparent">
-         <ul class="flex bg-transparent text-slate-300 text-xs">
-             <li class="bg-transparent">2019</li>
-             <li  class="ml-4 bg-transparent">Movie</li>
-             <li class="ml-4 bg-transparent">PG</li>
-         </ul>
-         <p class="bg-transparent font-bold shadow-lg ">Beyond Earth</p>
+      @loading(minimum 2s) {
+        <div class="center ml-auto mr-auto mt-60">
+          <div class="ring"></div>
+          <span>loading...</span>
         </div>
-        <img src=""/>
-     </div>
-
-     <div class="trending-card relative ml-10 ">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
-        <div class="card-details absolute top-24 left-9 text-white bg-transparent">
-         <ul class="flex bg-transparent text-slate-300 text-xs">
-             <li class="bg-transparent">2019</li>
-             <li  class="ml-4 bg-transparent">Movie</li>
-             <li class="ml-4 bg-transparent">PG</li>
-         </ul>
-         <p class="bg-transparent font-bold shadow-lg ">Beyond Earth</p>
-        </div>
-        <img src=""/>
-     </div>
-     <div class="trending-card relative ml-10">
-        <img src="https://entertainment-app-tawny.vercel.app/assets/thumbnails/beyond-earth/trending/large.jpg" height="35px" width="350px" class="rounded-md relative"/>
-        <div class="card-details absolute top-24 left-9 text-white bg-transparent">
-         <ul class="flex bg-transparent text-slate-300 text-xs">
-             <li class="bg-transparent">2019</li>
-             <li  class="ml-4 bg-transparent">Movie</li>
-             <li class="ml-4 bg-transparent">PG</li>
-         </ul>
-         <p class="bg-transparent font-bold shadow-lg ">Beyond Earth</p>
-        </div>
-        <img src=""/>
-     </div>
-</div>
-</div>
-</div>
+      }
+  </div> -->
+  
 
 <!-- recommended for you -->
 
 <p class="ml-28 mt-8 text-white font-semibold text-2xl fixed">Recommended for you</p>
  
 <div class="movies grid lg:grid-cols-5 grid-cols-3 gap-6 ml-28 mt-24 max-w-full fixed">
-   <div *ngFor=" let movieCard of movieCards">
+   <div *ngFor=" let movieCard of filteredMovies">
     <app-movie-card [movieCard]="movieCard"/>
    </div>
     
