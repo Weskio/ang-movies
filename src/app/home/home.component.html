@@ -16,7 +16,7 @@
 <!-- searchbar -->
 <div class="ml-5">
     <div class="search-bar mt-12 fixed mb-24 ml-24">
-        <form class="flex">
+        <form class="flex" >
             <button (click)="filterResults(filter.value)" class="text-white mr-4"><fa-icon class=" text-white text-2xl font-bold bg-[#0d172c] hover:text-red-500" [icon]="faMagnifyingGlass"></fa-icon></button>
             <input #filter type="text" placeholder="Search for movies or TV series" class=" md:w-[800px] caret-red-500 placeholder:text-slate-700 focus:outline-none focus:border-b focus:border-indigo-300 text-white" />    
         </form>
@@ -61,9 +61,11 @@
 <!-- recommended for you -->
 
 <p class="ml-28 mt-8 text-white font-semibold text-2xl fixed">Recommended for you</p>
- 
-<div class="movies grid lg:grid-cols-5 grid-cols-3 gap-6 ml-28 mt-24 max-w-full fixed">
-   <div *ngFor=" let movieCard of filteredMovies">
+<br/>
+<br/>
+<p class="text-white mt-14 ml-28" *ngIf="searchResults">Search Results for '{{filter.value}}'</p> 
+<div class="movies grid lg:grid-cols-5 grid-cols-1 gap-10 ml-28 mt-8 max-w-full fixed">
+  <div *ngFor=" let movieCard of filteredMovies">
     <app-movie-card [movieCard]="movieCard"/>
    </div>
     

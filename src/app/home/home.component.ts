@@ -7,7 +7,7 @@ import { faClapperboard } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { MovieCardComponent } from "../movie-card/movie-card.component";
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MovieDataService } from '../movie-data.service';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { TrendingMoviesComponent } from "../trending-movies/trending-movies.component";
@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
     encapsulation: ViewEncapsulation.None,
-    imports: [FontAwesomeModule, MovieCardComponent, NgFor, TrendingMoviesComponent,FormsModule]
+    imports: [FontAwesomeModule, MovieCardComponent, NgFor, TrendingMoviesComponent,FormsModule, NgIf]
 })
 export class HomeComponent {
  faCoffee =faCoffee
@@ -36,11 +36,12 @@ export class HomeComponent {
  movies = inject(MovieDataService)
  movieCards = this.movies.getMoviesData()
  filteredMovies: MovieCard[] = this.movieCards;
-  
 
- 
+ searchResults =false
+   
 
  filterResults(text:string){
+  this.searchResults=true
   this.filteredMovies =this.movieCards.filter(
     movie => movie?.title.toLowerCase().includes(text.toLowerCase())
    )
